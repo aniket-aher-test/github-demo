@@ -6,3 +6,7 @@
   tasks:
     - name: Ping Test
       ping: 
+    - name: Create User aaher
+      user:
+        name: aaher
+        state: present
