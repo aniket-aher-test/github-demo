@@ -1,9 +1,10 @@
 ---
 - name: Test Azure VM connetivity
   hosts: all
-  gather_facts: false
+  become: true
 
   tasks:
+    - command: whoami
     - name: Ping Test
       ping: 
     - name: Create User aaher
