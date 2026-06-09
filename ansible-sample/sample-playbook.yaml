@@ -16,4 +16,7 @@
     - name: check aaher user exists
       command: id aaher
       register: user_check
-      debug: user_check.stdout
+    - name: Display user details
+      debug: 
+        var: user_check.stdout
+
