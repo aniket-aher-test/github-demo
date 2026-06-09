@@ -5,6 +5,10 @@
 
   tasks:
     - command: whoami
+      register: user_info
+    - name: Display output
+      debug:
+        var: user_info.stdout
     - name: Ping Test
       ping: 
     - name: Create User aaher
