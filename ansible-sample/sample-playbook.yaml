@@ -9,9 +9,11 @@
     - name: Display output
       debug:
         var: user_info.stdout
-    - name: Ping Test
-      ping: 
     - name: Create User aaher
       user:
         name: aaher
         state: present
+    - name: check aaher user exists
+      command: id aaher
+      register: user_check
+      debug: user_check.stdout
