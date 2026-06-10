@@ -1,0 +1,8 @@
+---
+- name: Health Validation
+  hosts: all
+  gather_facts: true
+  become: true
+
+  roles: 
+    - health_validation

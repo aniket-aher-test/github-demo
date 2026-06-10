@@ -1,0 +1,8 @@
+---
+- name: Display OS details
+  debug:
+    msg:
+      - "Hostname: {{ ansible_hostname }}"
+      - "OS: {{ ansible_distribution }}"
+      - "Version: {{ ansible_distribution_version }}"
+      - "Architecture: {{ ansible_architecture }}"
