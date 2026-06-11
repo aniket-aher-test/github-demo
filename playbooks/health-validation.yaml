@@ -4,6 +4,5 @@
   gather_facts: true
   become: true
 
-  tasks:
-    - import_role:
-        name: health_validation
+  roles: 
+    - health_validation
