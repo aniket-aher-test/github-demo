@@ -14,7 +14,7 @@
       - "Total Memory: {{ vm_details.Total_Memory }}"
       - "Free Memory: {{ vm_details.Free_Memory }}"   
       - "filesystems":[
-        {% for fs in fs_details %}
+        {% for fs in vm_details.fs_details %}
         {
         - "Mount_Point: {{ fs.mount }}"
         - "Size: {{ fs.size_total | human_readable }}"
