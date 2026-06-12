@@ -4,3 +4,6 @@
 
 - name: filesystem Checks
   include_tasks: cpu-memory-details.yaml  
+
+- name:
+  include_tasks: generate-report.yaml
