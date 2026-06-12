@@ -23,3 +23,12 @@
         {% endfor %}
         ]    
       }
+
+- name: Read Report Filesystem
+  slurp:
+    src: "/tmp/{{ inventory_hostname }}_health_report.json"
+  register: report_content
+
+- name: Display report_content
+  debug:
+    msg: "{{ report_content.content | b64decode }}"
