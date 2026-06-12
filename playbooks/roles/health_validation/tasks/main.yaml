@@ -1,15 +1,6 @@
 ---
 - name: OS Checks
-  include_tasks: os-validation.yaml
-
-- name: kernel Checks
-  include_tasks: kernel-version.yaml
+  include_tasks: os-kernel.yaml
 
 - name: filesystem Checks
-  include_tasks: filesystem-checks.yaml
-
-- name: Memory Checks
-  include_tasks: memory-validation.yaml
-
-- name: CPU Checks
-  include_tasks: cpu-validation.yaml  
+  include_tasks: cpu-memory-details.yaml  

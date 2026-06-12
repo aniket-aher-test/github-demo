@@ -1,8 +1,0 @@
----
-- name: Display CPU details
-  debug:
-    msg:
-      - "CPU Count: {{ ansible_processor_vcpus }}"
-      - "Processor Cores: {{ ansible_processor_cores}}"
-
-      

@@ -1,0 +1,26 @@
+---
+- name: Store CPU/Filesystem/Memory details
+  set_fact:
+    vm_details:
+      - "CPU_Count: {{ ansible_processor_vcpus }}"
+      - "Processor_Cores: {{ ansible_processor_cores}}"
+      - "Total_Memory: {{ ansible_facts['memtotal_mb'] }} MB"
+      - "Free_Memory: {{ ansible_facts['memfree_mb'] }} MB"
+      - "fs_details: {{ ansible_mounts }}"
+      
+
+
+
+- name: Display CPU/Filesystem/Memory details
+  debug:
+    msg:
+      - "CPU Count: {{ vm_details.CPU_Count }}"
+      - "Processor Cores: {{ vm_details.Processor_Cores }}"
+      - "Total Memory: {{ vm_details.Total_Memory }}"
+      - "Free Memory: {{ vm_details.Free_Memory }}"
+      - "Mount_Point: {{ item.mount }}"
+      - "Size: {{ item.size_total | human_readable }}"
+      - "Available: {{ item.size_available | human_readable }}"
+  loop: "{{ fs_details }}"
+
+

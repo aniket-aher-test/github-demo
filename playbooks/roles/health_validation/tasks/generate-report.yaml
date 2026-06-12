@@ -1,0 +1,25 @@
+---
+- name: Generate JSON Report
+  copy:
+    dest: "/tmp/{{ inventory_hostname }}_health_report.json"
+    content: |
+      {
+      - "Hostname: {{ os_details.Hostname }}"
+      - "OS: {{ os_details.OS }}"
+      - "Version: {{ os_details.Version }}"
+      - "Architecture: {{ os_details.Architecture }}"
+      - "kernel: {{ os_details.kernel_version }}"
+      - "CPU Count: {{ vm_details.CPU_Count }}"
+      - "Processor Cores: {{ vm_details.Processor_Cores }}"
+      - "Total Memory: {{ vm_details.Total_Memory }}"
+      - "Free Memory: {{ vm_details.Free_Memory }}"   
+      - "filesystems":[
+        {% for fs in fs_details %}
+        {
+        - "Mount_Point: {{ fs.mount }}"
+        - "Size: {{ fs.size_total | human_readable }}"
+        - "Available: {{ fs.size_available | human_readable }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+        ]    
+      }

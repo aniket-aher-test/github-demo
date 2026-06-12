@@ -1,8 +1,18 @@
 ---
-- name: Display OS details
-  debug:
-    msg:
+- name: Store OS details
+  set_fact:
+    os_details:
       - "Hostname: {{ ansible_hostname }}"
       - "OS: {{ ansible_distribution }}"
       - "Version: {{ ansible_distribution_version }}"
       - "Architecture: {{ ansible_architecture }}"
+      - "kernel_version: {{ ansible_kernel }}"
+
+- name: Display OS details
+  debug:
+    msg:
+      - "Hostname: {{ os_details.Hostname }}"
+      - "OS: {{ os_details.OS }}"
+      - "Version: {{ os_details.Version }}"
+      - "Architecture: {{ os_details.Architecture }}"
+      - "kernel: {{ os_details.kernel_version }}"

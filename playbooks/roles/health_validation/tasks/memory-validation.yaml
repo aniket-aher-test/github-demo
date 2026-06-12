@@ -1,7 +1,0 @@
----
-- name: Display Memory details
-  debug:
-    msg:
-      - "Total Memory: {{ ansible_facts['memtotal_mb'] }} MB"
-      - "Free Memory: {{ ansible_facts['memfree_mb'] }} MB"
-  

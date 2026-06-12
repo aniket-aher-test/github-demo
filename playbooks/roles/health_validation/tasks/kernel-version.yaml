@@ -1,5 +1,0 @@
----
-- name: Display Kernel details
-  debug:
-    msg:
-      - "kernel Version: {{ ansible_kernel }}"
