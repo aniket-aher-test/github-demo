@@ -2,11 +2,11 @@
 - name: Store OS details
   set_fact:
     os_details:
-      - "Hostname: {{ ansible_hostname }}"
-      - "OS: {{ ansible_distribution }}"
-      - "Version: {{ ansible_distribution_version }}"
-      - "Architecture: {{ ansible_architecture }}"
-      - "kernel_version: {{ ansible_kernel }}"
+      Hostname: "{{ ansible_hostname }}"
+      OS: "{{ ansible_distribution }}"
+      Version: "{{ ansible_distribution_version }}"
+      Architecture: "{{ ansible_architecture }}"
+      kernel_version: "{{ ansible_kernel }}"
 
 - name: Display OS details
   debug:
