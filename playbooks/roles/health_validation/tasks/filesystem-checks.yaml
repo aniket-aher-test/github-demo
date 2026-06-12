@@ -1,8 +1,8 @@
 ---
 - name: Filesystem Information
   debug:
-  msg:
-    - "Mount Point: {{ item.mount }}"
-    - "Size: {{ item.size_total | human_readable }}"
-    - "Available: {{ item.size_available | human_readable }}"
+    msg:
+      - "Mount Point: {{ item.mount }}"
+      - "Size: {{ item.size_total | human_readable }}"
+      - "Available: {{ item.size_available | human_readable }}"
   loop: "{{ ansible_mounts }}"
